@@ -19,7 +19,7 @@ function totalSales(data) {
 }
 
 // Function to calculate month-wise sales totals
-function monthWiseSales(data) {
+function monthSales(data) {
     const salesByMonth = {};
     data.forEach(row => {
         const month = row['Date'].slice(0, 7); // Extract year and month
@@ -29,7 +29,7 @@ function monthWiseSales(data) {
 }
 
 // Function to find the most popular item by quantity in each month
-function mostPopularItem(data) {
+function PopularItem(data) {
     const popularItemsByMonth = {};
     data.forEach(row => {
         const month = row['Date'].slice(0, 7);
@@ -67,8 +67,8 @@ function mostRevenueItem(data) {
 }
 
 // Function to calculate min, max, and average orders for the most popular item in each month
-function ordersStatsForPopularItem(data) {
-    const popularItems = mostPopularItem(data);
+function OrderStatus(data) {
+    const popularItems = PopularItem(data);
     const statsByMonth = {};
 
     for (const month in popularItems) {
@@ -85,8 +85,8 @@ function ordersStatsForPopularItem(data) {
 }
 
 // Results
-console.log("Total Sales:", totalSales(rows));
-console.log("Month-wise Sales Totals:", monthWiseSales(rows));
-console.log("Most Popular Item Each Month:", mostPopularItem(rows));
-console.log("Items Generating Most Revenue Each Month:", mostRevenueItem(rows));
-console.log("Order Stats for Most Popular Item Each Month:", ordersStatsForPopularItem(rows));
+console.log("totalSales:", totalSales(rows));
+console.log("monthSales:", monthSales(rows));
+console.log("PopularItem:", PopularItem(rows));
+console.log("mostRevenueItem:", mostRevenueItem(rows));
+console.log("OrderStatus:", OrderStatus(rows));
